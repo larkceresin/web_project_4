@@ -1,0 +1,17 @@
+.popout__form{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    height: 330px;
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-self: end;
+}
+@media screen and (max-width: 500px){
+    .popout__form{
+        width: 240px;
+        height: 258px;
+    }
+}

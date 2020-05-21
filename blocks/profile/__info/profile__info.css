@@ -1,15 +1,15 @@
 .profile__info{
     margin-top: 36px;
     display: grid;
-    grid-template-columns: 160px minmax(280px, 450px);
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: repeat(2, 64px);
-    grid-gap: 16px;
+    grid-row-gap: 16px;
+    grid-column-gap: 0;
 }
 
-@media screen and (max-width:450px){
+@media screen and (max-width:800px){
     .profile__info{
         display: flex;
         flex-direction: column;
-        align-content: center;
     }
 }
