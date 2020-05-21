@@ -2,11 +2,11 @@
     margin: 41px 0;
     width: 173px;
     height: 33px;
-    background-image: url(../../../images/around_the_us.svg);
 }
 
 .header__logo:hover{
-    background-image: url(../../../images/logo_black.svg);
+   filter: brightness(0) saturate(100%);
+    
 }
 
 @media screen and (max-width: 450px){
