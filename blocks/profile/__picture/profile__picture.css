@@ -1,0 +1,14 @@
+.profile__picture{
+    border-radius: 100%;
+    width: 128px;
+    height: 128px;
+    padding: 0 32px;
+    grid-column: 1;
+    grid-row: span 2;
+    justify-self: start;
+}
+@media screen and (max-width:450px){
+    .profile__picture{
+        align-self: center;
+    }
+}
