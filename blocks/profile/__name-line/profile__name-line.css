@@ -1,0 +1,16 @@
+.profile__name-line{
+    white-space: nowrap;
+    margin: 0;
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: start;
+    align-content: end;
+}
+
+@media screen and (max-width:800px){
+    .profile__name-line{
+        margin: 10px auto;
+        width: 230px;
+    }
+}
+}

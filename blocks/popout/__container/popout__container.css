@@ -1,5 +1,5 @@
 .popout__container{
-    display: grid;
+    display: none;
     grid-gap: 0;
     justify-self: start;
     align-self: end;

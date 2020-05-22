@@ -30,11 +30,11 @@ const editBtn = document.querySelector(".profile__edit-button");
 const closeBtn = document.querySelector(".popout__close-button");
 
 function visible() {   
-    document.querySelector(".popout").classList.add("popout_active");
+    document.querySelector(".popout__container").classList.add("popout__container_active");
     return;
 }
 function hidden() {
-    document.querySelector(".popout").classList.remove("popout_active");
+    document.querySelector(".popout__container").classList.remove("popout__container_active");
     return;
 }
 

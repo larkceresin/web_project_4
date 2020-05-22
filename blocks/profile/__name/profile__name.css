@@ -1,18 +1,16 @@
 .profile__name{
+    display: inline-block;
     margin: 0;
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: start;
-    align-self: end;
+    padding: 0;
     color: #FFFFFF;
     font-weight: 500;
     font-size: 42px;
     line-height: 56px;
+    max-width: 380px;
 }
 
 @media screen and (max-width:800px){
     .profile__name{
         font-size: 22px;
-        align-self: center;
     }
 }

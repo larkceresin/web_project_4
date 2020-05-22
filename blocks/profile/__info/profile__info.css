@@ -1,7 +1,7 @@
 .profile__info{
     margin-top: 36px;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2.5fr;
     grid-template-rows: repeat(2, 64px);
     grid-row-gap: 16px;
     grid-column-gap: 0;
@@ -11,5 +11,6 @@
     .profile__info{
         display: flex;
         flex-direction: column;
+        align-content: center;
     }
 }
