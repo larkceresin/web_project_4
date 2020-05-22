@@ -1,4 +1,5 @@
 # Project 4: Around The U.S.
+[Link to the project live](https://larkceresin.github.io/web_project_4/)
 This is a project where I'm just starting to learn the basics of JavaScript to make a website more interactable, and dynamic.
 ### Overview
 
