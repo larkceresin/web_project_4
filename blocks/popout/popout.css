@@ -1,3 +1,4 @@
+@import url(__container/popout__container.css);
 @import url(_active/popout_active.css);
 @import url(__button/popout__button.css);
 @import url(__close-button/popout__close-button.css);
@@ -6,9 +7,5 @@
 @import url(__form/popout__form.css);
 
 .popout{
-   
-}
-.popout > * {
-    z-index: 10;
-    position: relative;
+    display: none;
 }

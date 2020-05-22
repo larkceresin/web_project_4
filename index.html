@@ -21,13 +21,15 @@
             <img class="profile__add-button" src="images/add-icon.svg" alt="add">
         </section>
         <section class="popout popout_active">
-            <img class="popout__close-button" src="images/close-icon.svg" alt="close">
-            <form class="popout__form">
-                <h2 class="popout__form-text">Edit profile</h2>
-            <input class="popout__form-input" type="text" id="name" name="name" value="Jacques Cousteau">
-            <input class="popout__form-input" type="text" id="about" name="about-me" value="Explorer">
-            <input class="popout__button" type="submit" value="Save">
-            </form>
+            <div class="popout__container">
+                <img class="popout__close-button" src="images/close-icon.svg" alt="close">
+                <form class="popout__form">
+                    <h2 class="popout__form-text">Edit profile</h2>
+                <input class="popout__form-input" type="text" id="name" name="name" value="Jacques Cousteau">
+                <input class="popout__form-input" type="text" id="about" name="about-me" value="Explorer">
+                <input class="popout__button" type="submit" value="Save">
+                </form>
+            </div>
         </section>
         <section class="gallery">
             <ul class="gallery__grid">
@@ -61,5 +63,6 @@
             <p class="footer__copyright">© 2020 Around The U.S.</p>
         </footer>
     </div>
+    <script src="index.js"></script>
 </body>
 </html>
