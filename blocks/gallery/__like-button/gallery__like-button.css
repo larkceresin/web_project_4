@@ -1,3 +1,12 @@
 .gallery__like-button{
     padding: 21px;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    background: #FFFFFF;
+    cursor: pointer;
+    background-image: url(../../../images/heart.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    
 }

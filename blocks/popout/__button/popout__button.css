@@ -1,8 +1,11 @@
 .popout__button{
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
     background: #000000;
-border-radius: 2px;
+    border-radius: 2px;
     width: 358px;
-height: 50.15px;
+    height: 50.15px;
     color: #ffffff;
     font-weight: normal;
 font-size: 18px;

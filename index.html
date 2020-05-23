@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Around the USA</title>
     <meta name="author" content="Jenna Toff">
     <link rel="stylesheet" type="text/css" href="pages/index.css">
 </head>
@@ -16,55 +17,55 @@
                 <img class="profile__picture" src="images/Jacques-Cousteau.jpg" alt="Jacques Cousteau">
                 <div class="profile__name-line">
                     <h1 class="profile__name">Jacques Cousteau</h1>  
-                    <img class="profile__edit-button" src="images/edit-pencil.svg" alt="edit">
+                    <button class="profile__edit-button">Save</button>
                 </div>
                
                 <p class="profile__profession">Explorer</p>
             </div>
-            <img class="profile__add-button" src="images/add-icon.svg" alt="add">
-        </section>
-        <section class="popout">
-            <div class="popout__container">
-                <img class="popout__close-button" src="images/close-icon.svg" alt="close">
-                <form class="popout__form">
-                    <h2 class="popout__form-text">Edit profile</h2>
-                <input class="popout__form-input" type="text" id="name" name="name" value="Jacques Cousteau">
-                <input class="popout__form-input" type="text" id="about" name="about-me" value="Explorer">
-                <input class="popout__button" type="submit" value="Save">
-                </form>
-            </div>
+            <button class="profile__add-button"></button>
         </section>
         <section class="gallery">
             <ul class="gallery__grid">
                 <li class="gallery__conainer">
                     <img class="gallery__image" src="images/cliffside__Katie-Rodriguez.jpg" alt="cliffside">
-                    <div class="gallery__group"><p class="gallery__text">The End Place</p><img class="gallery__like-button" src="images/heart.svg" alt="heart"></div>
+                    <div class="gallery__group"><p class="gallery__text">The End Place</p><button class="gallery__like-button"></button></div>
                 </li>
                   <li class="gallery__conainer">
                     <img class="gallery__image" src="images/leaf__chuttersnap.jpg" alt="leaf">
-                    <div class="gallery__group"><p class="gallery__text">Turn That Leaf</p><img class="gallery__like-button" src="images/heart.svg" alt="heart"></div>
+                      <div class="gallery__group"><p class="gallery__text">Turn That Leaf</p><button class="gallery__like-button"></button></div>
                 </li>
                   <li class="gallery__conainer">
                     <img class="gallery__image" src="images/snowy-peaks__Joshua-Redekopp.jpg" alt="Snow on mountains">
-                    <div class="gallery__group"><p class="gallery__text"> Great Peaks</p><img class="gallery__like-button" src="images/heart.svg" alt="heart"></div>
+                    <div class="gallery__group"><p class="gallery__text"> Great Peaks</p><button class="gallery__like-button"></button></div>
                 </li>
                   <li class="gallery__conainer">
                     <img class="gallery__image" src="images/storm-incoming__Reuben-Teo.jpg" alt="stormy weather">
-                    <div class="gallery__group"><p class="gallery__text">Barrier Islands</p><img class="gallery__like-button" src="images/heart.svg" alt="heart"></div>
+                    <div class="gallery__group"><p class="gallery__text">Barrier Islands</p><button class="gallery__like-button"></button></div>
                 </li>
                   <li class="gallery__conainer">
                     <img class="gallery__image" src="images/wash-hands__Joshua-Reddekopp.jpg" alt="shopsign">
-                    <div class="gallery__group"><p class="gallery__text">Never Forever</p><img class="gallery__like-button" src="images/heart.svg" alt="heart"></div>
+                    <div class="gallery__group"><p class="gallery__text">Never Forever</p><button class="gallery__like-button"></button></div>
                 </li>
                   <li class="gallery__conainer">
                     <img class="gallery__image" src="images/waterfalling__Oliver-Ash.jpg" alt="water cascade">
-                    <div class="gallery__group"><p class="gallery__text">Water Crossing</p><img class="gallery__like-button" src="images/heart.svg" alt="heart"></div>
+                    <div class="gallery__group"><p class="gallery__text">Water Crossing</p><button class="gallery__like-button"></button></div>
                 </li>
             </ul>
         </section>
         <footer class="footer">
             <p class="footer__copyright">© 2020 Around The U.S.</p>
         </footer>
+        <section class="popout">
+            <div class="popout__container">
+                <button class="popout__close-button"></button>
+                <form class="popout__form">
+                    <h2 class="popout__form-text">Edit profile</h2>
+                <input class="popout__form-input popout__form-input_type_name" type="text" id="name" name="name" value="Jacques Cousteau">
+                <input class="popout__form-input popout__form-input_type_job" type="text" id="about" name="about-me" value="Explorer">
+                    <button class="popout__button" type="submit" value="Save">Save</button>
+                </form>
+            </div>
+        </section>
     </div>
     <script src="index.js"></script>
 </body>
