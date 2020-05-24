@@ -1,11 +1,11 @@
 .popout__container{
     display: none;
-    grid-gap: 0;
-    justify-self: start;
-    align-self: end;
     position: fixed;
-    top: 33%;
-    left: 33%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
 }
 .popout__container::after{
     content: "";
@@ -17,27 +17,5 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-}
-
-@media screen and (max-width:800px){
-    .popout__container{
-        left: 10%;
-        top: 25%;
-    
-    }
-}
-@media screen and (max-width:800px){
-    .popout__container{
-        left: 20%;
-        top: 25%;
-    
-    }
-}
-@media screen and (max-width:400px){
-    .popout__container{
-        left: 10%;
-        top: 25%;
-    
-    }
 }
 

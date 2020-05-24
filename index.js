@@ -6,10 +6,10 @@ const jobInput = formElement.querySelector(".popout__form-input_type_job");
 const jobOutput = document.querySelector(".profile__profession");
 const editBtn = document.querySelector(".profile__edit-button");
 const closeBtn = document.querySelector(".popout__close-button");
-
+const popout = document.querySelector(".popout__container");
 
 function toggle() {   
-    document.querySelector(".popout__container").classList.toggle("popout__container_active");
+    popout.classList.toggle("popout__container_active");
 }
 
 function formSubmitHandler (evt) {

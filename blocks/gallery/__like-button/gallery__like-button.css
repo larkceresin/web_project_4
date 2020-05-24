@@ -8,5 +8,8 @@
     background-image: url(../../../images/heart.svg);
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 10px;
+    box-shadow: 0;
+    border: 0;
     
 }

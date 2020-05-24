@@ -6,7 +6,9 @@
     font-weight: 500;
     font-size: 42px;
     line-height: 56px;
-    max-width: 380px;
+    max-width: 450px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 @media screen and (max-width:800px){
