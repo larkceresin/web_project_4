@@ -8,14 +8,18 @@
 @media screen and (max-width:900px){
     .gallery__grid{
         grid-template-columns: repeat(2, 1fr);
+         max-width: 90%;
     }
 }
+@media screen and (max-width:640px){
+    .gallery__grid{
+        grid-template-columns: repeat(2, 50%);
+    }
 @media screen and (max-width:425px){
     .gallery__grid{
         grid-template-columns: 1fr;
         grid-column-gap: 0;
         grid-row-gap: 19px;
         padding: 0;
-        max-width: 90%;
     }
 }
