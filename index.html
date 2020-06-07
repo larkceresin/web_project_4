@@ -33,39 +33,40 @@
             <p class="footer__copyright">© 2020 Around The U.S.</p>
         </footer>
         <section class="popout popout_profile-edit">
-            <div class="popout__container popout_profile-edit__container">
-                <button class="popout__close-button popout_profile-edit__close-button"></button>
-                <form class="popout__form popout_profile-edit__form">
-                    <h2 class="popout__form-text popout_profile-edit__form-text">Edit profile</h2>
+            <div class="popout__container popout__container_profile-edit">
+                <button class="popout__close-button"></button>
+                <form class="popout__form ">
+                    <h2 class="popout__form-text">Edit profile</h2>
                 <input class="popout__form-input popout__form-input_type_name" type="text" id="name" name="name" value="Jacques Cousteau">
                 <input class="popout__form-input popout__form-input_type_job" type="text" id="about" name="about-me" value="Explorer">
-                    <button class="popout__button popout_profile-edit__button" type="submit" value="Save">Save</button>
+                    <button class="popout__button popout__button_type_save" type="submit" value="Save">Save</button>
                 </form>
             </div>
         </section>
                 <section class="popout popout_gallery-add">
-            <div class="popout__container popout_gallery-add__container">
-                <button class="popout__close-button popout_gallery-add__close-button"></button>
+            <div class="popout__container popout__container_gallery-add">
+                <button class="popout__close-button "></button>
                 <form class="popout__form popout_gallery-add__form">
                     <h2 class="popout__form-text popout_gallery-add__form-text">New Place</h2>
                 <input class="popout__form-input popout__form-input_type_title" type="text" id="title" name="title" placeholder="Title" >
                 <input class="popout__form-input popout__form-input_type_image" type="text" id="image-link" name="image-link" placeholder="Image link" >
-                    <button class="popout__button popout_gallery-add__button" type="submit" value="Save">Create</button>
+                    <button class="popout__button popout__button_type_create" type="submit" value="Save">Create</button>
                 </form>
             </div>
         </section>
         <section class="popout popout_picture-view">
-            <div class="popout__container popout_picture-view__container">
-                <button class="popout__close-button popout_picture-view__close-button"></button>
-                <div class="popout__picture-area"><img class="popout__picture"><p class="popout__title"></p>
+            <div class="popout__container popout__container_picture-view">
+                <button class="popout__close-button"></button>
+                <figure class="popout__picture-container">
+                <img class="popout__picture" src="" alt=""><figcaption class="popout__title"></figcaption> 
+                    </figure>
             </div>
-        </div>
         </section>
     </div>
     <template id="gallery-object">
         <li class="gallery__container">
-            <img class="gallery__image"><button class="gallery__trash-button"></button>
-            <div class="gallery__group"><p class="gallery__text"> Great Peaks</p><button class="gallery__like-button"></button></div>
+            <img class="gallery__image" src="" alt=""><button class="gallery__trash-button"></button>
+            <div class="gallery__group"><h3 class="gallery__text"> Great Peaks</h3><button class="gallery__like-button"></button></div>
         </li>
     </template>
     <script src="index.js"></script>

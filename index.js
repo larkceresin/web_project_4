@@ -1,23 +1,23 @@
 //profile modal
-const profilePopout = document.querySelector(".popout_profile-edit__container");
+const profilePopout = document.querySelector(".popout__container_profile-edit");
 
-const profileFormElement = document.querySelector(".popout_profile-edit__form");
+const profileFormElement = profilePopout.querySelector(".popout__form");
 const nameInput = profileFormElement.querySelector(".popout__form-input_type_name");
 const jobInput = profileFormElement.querySelector(".popout__form-input_type_job");
-const profileCloseBtn = document.querySelector(".popout_profile-edit__close-button");
+const profileCloseBtn = profilePopout.querySelector(".popout__close-button");
 
 //profile
-const nameOutput = document.querySelector(".profile__name");
-const jobOutput = document.querySelector(".profile__profession");
-const editBtn = document.querySelector(".profile__edit-button");
-console.log(editBtn);
-const addButton = document.querySelector(".profile__add-button");
+const profile = document.querySelector(".profile");
+const nameOutput = profile.querySelector(".profile__name");
+const jobOutput = profile.querySelector(".profile__profession");
+const editBtn = profile.querySelector(".profile__edit-button");
+const addButton = profile.querySelector(".profile__add-button");
 
 //gallery modal
-const galleryPopout = document.querySelector(".popout_gallery-add__container");
+const galleryPopout = document.querySelector(".popout__container_gallery-add");
 
-const galleryFormElement = document.querySelector(".popout_gallery-add__form");
-const galleryCloseBtn = document.querySelector(".popout_gallery-add__close-button");
+const galleryFormElement = galleryPopout.querySelector(".popout__form");
+const galleryCloseBtn = galleryPopout.querySelector(".popout__close-button");
 const titleInput = galleryFormElement.querySelector(".popout__form-input_type_title");
 const imageInput = galleryFormElement.querySelector(".popout__form-input_type_image");
 
@@ -27,48 +27,11 @@ const galleryTemplate = document.querySelector("#gallery-object").content;
 const galleryContainer = document.querySelector(".gallery__grid");
 
 //picture modal
-const picturePopout = document.querySelector(".popout_picture-view__container");
-const pictureCloseBtn = document.querySelector(".popout_picture-view__close-button");
+const picturePopout = document.querySelector(".popout__container_picture-view");
+const pictureCloseBtn = picturePopout.querySelector(".popout__close-button");
+const popoutImage =  picturePopout.querySelector(".popout__picture");
+const popoutTitle = picturePopout.querySelector(".popout__title");
 
-function toggleModal(popout) { 
-//    console.log(popout);
-    popout.classList.toggle("popout__container_active");
-}
-
-function profileFormSubmitHandler (evt) {
-    evt.preventDefault();
-
-    nameOutput.textContent = nameInput.value;
-    
-    jobOutput.textContent = jobInput.value;
-    
-    toggleModal(profilePopout);
-}
-
-function galleryAddItems(image, title){
-    const galleryElement = galleryTemplate.cloneNode(true);
-    const galleryImage = galleryElement.querySelector(".gallery__image");
-    const galleryText = galleryElement.querySelector(".gallery__text");
-    galleryImage.src = image;
-    galleryText.textContent = title;
-    
-    galleryContainer.prepend(galleryElement);
-
-};
-
-function galleryFormSubmitHandler (evt) {
-    evt.preventDefault();
-    galleryAddItems(imageInput.value, titleInput.value);
-   galleryFormElement.reset();
-    toggleModal(galleryPopout);
-}
-
-function pictureHandler(evt){
-    picturePopout.querySelector(".popout__image").src = evt.target.closest(".gallery__picture").src;
-    picturePopout.querySelector(".popout__title").textContent =  evt.target.closest("gallery__text").textContent;
-    
-    toggleModal(picturePopout);
-}
 
 const initialCards = [
     {
@@ -96,30 +59,80 @@ const initialCards = [
         link: "images/waterfalling__Oliver-Ash.jpg"
     }
 ];
-const reversed = initialCards.reverse();
-reversed.forEach(thingy => galleryAddItems(thingy.link, thingy.name));
 
 
-function dummyFunction(someVar){
-    console.log("Dummy function")
+
+function toggleModal(popout) { 
+
+    popout.classList.toggle("popout__container_active");}
+   ;
+
+function profileFormSubmitHandler (evt) {
+    evt.preventDefault();
+
+    nameOutput.textContent = nameInput.value;
+    jobOutput.textContent = jobInput.value;
+    
+    toggleModal(profilePopout);
 }
 
-profileFormElement.addEventListener('submit', profileFormSubmitHandler);
-editBtn.addEventListener("click", profilePopout => toggleModal(profilePopout));
-//console.log("Listener added to editBtn");
-//console.log(editBtn);
-profileCloseBtn.addEventListener("click", function() {toggleModal(profilePopout)});
-addButton.addEventListener("click", toggleModal(galleryPopout));
-galleryCloseBtn.addEventListener("click", toggleModal(galleryPopout));
-galleryFormElement.addEventListener('submit', galleryFormSubmitHandler);
-//delete button:
-galleryContainer.addEventListener("click", evt => {
-    evt.target.closest(".gallery__trash-button").parentElement.remove();
+
+function galleryCreateCard(image, title){
+    const galleryElement = galleryTemplate.cloneNode(true);
+    const galleryImage = galleryElement.querySelector(".gallery__image");
+    const galleryText = galleryElement.querySelector(".gallery__text");
+    const galleryTrash = galleryElement.querySelector(".gallery__trash-button");
+    const galleryLike = galleryElement.querySelector(".gallery__like-button")
+    galleryImage.src = image;
+    galleryImage.alt = title;
+    galleryText.textContent = title;
+    
+    //delete button:
+galleryTrash.addEventListener("click", evt => {
+    galleryTrash.parentElement.remove();
 });
 //like-button
-galleryContainer.addEventListener("click", evt => {
-    evt.target.closest(".gallery__like-button").classList.toggle("gallery__like-button_active");
+galleryLike.addEventListener("click", evt => {
+    galleryLike.classList.toggle("gallery__like-button_active");
 });
-galleryContainer.addEventListener('click', pictureHandler);
-//window.addEventListener('click', dummyFunction(n));
-//console.log(window);
+    //picture
+galleryImage.addEventListener('click', (evt) => {
+    popoutImage.src = evt.target.src;
+    popoutImage.alt = evt.target.alt;
+    popoutTitle.textContent = evt.target.alt;
+    
+    toggleModal(picturePopout);
+});
+    return galleryElement
+
+};
+function galleryHandleCard(image, title){
+        galleryCreateCard(image, title)
+        galleryContainer.prepend(galleryCreateCard(image, title));
+
+}
+function galleryInitialCardHandler(image, title){
+    galleryCreateCard(image, title);
+    galleryContainer.append(galleryCreateCard(image, title));
+};
+
+function galleryFormSubmitHandler (evt) {
+    evt.preventDefault();
+    galleryHandleCard(imageInput.value, titleInput.value);
+    
+   galleryFormElement.reset();
+    toggleModal(galleryPopout);
+}
+
+
+
+//run initial cards through
+initialCards.forEach(thingy => galleryInitialCardHandler(thingy.link, thingy.name));
+
+profileFormElement.addEventListener('submit', profileFormSubmitHandler);
+editBtn.addEventListener("click", () => toggleModal(profilePopout));
+profileCloseBtn.addEventListener("click", () => toggleModal(profilePopout));
+addButton.addEventListener("click", () => toggleModal(galleryPopout));
+galleryCloseBtn.addEventListener("click", () => toggleModal(galleryPopout));
+galleryFormElement.addEventListener('submit', galleryFormSubmitHandler);
+pictureCloseBtn.addEventListener("click", () => toggleModal(picturePopout));

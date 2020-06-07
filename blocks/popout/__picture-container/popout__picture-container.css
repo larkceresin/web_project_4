@@ -1,0 +1,7 @@
+.popout__picture-container{
+    justify-self: end;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 4;
+}

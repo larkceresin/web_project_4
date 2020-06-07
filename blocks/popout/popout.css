@@ -1,5 +1,6 @@
 @import url(__container/popout__container.css);
 @import url(__container/_active/popout__container_active.css);
+@import url(__container/_picture-view/popout__container_picture-view.css);
 @import url(__button/popout__button.css);
 @import url(__close-button/popout__close-button.css);
 @import url(__form-input/popout__form-input.css);
@@ -7,4 +8,5 @@
 @import url(__form/popout__form.css);
 @import url(__picture/popout__picture.css);
 @import url(__title/popout__title.css);
+@import url(__picture-container/popout__picture-container.css);
 
