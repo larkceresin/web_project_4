@@ -10,9 +10,12 @@
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 10px;
-    box-shadow: 0;
+    -webkit-box-shadow: 0;
+            box-shadow: 0;
     border: none;
-    
+    -webkit-transition: background-image opacity .5s ease-in-out;
+    -o-transition: background-image opacity .5s ease-in-out;
+    transition: background-image opacity .5s ease-in-out;    
 }
 .gallery__like-button:hover{
     opacity: .6;

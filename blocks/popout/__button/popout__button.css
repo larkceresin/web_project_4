@@ -11,7 +11,9 @@
 font-size: 18px;
 line-height: 22px;
 text-align: center;
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     margin-bottom: 36px;
 }
 .popout__button:hover{

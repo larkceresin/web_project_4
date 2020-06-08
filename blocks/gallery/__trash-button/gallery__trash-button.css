@@ -11,9 +11,10 @@
     background-size: contain;
     width: 18px;
     height: 19px;
+    -webkit-transition: .3s opacity ease-in-out;
+    -o-transition: .3s opacity ease-in-out;
     transition: .3s opacity ease-in-out;
 }
-
 .gallery__trash-button:hover{
     opacity: .6;
 }

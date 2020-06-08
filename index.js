@@ -64,8 +64,9 @@ const initialCards = [
 
 function toggleModal(popout) { 
 
-    popout.classList.toggle("popout__container_active");}
-   ;
+    popout.classList.toggle("popout__container_active");
+}
+   
 
 function profileFormSubmitHandler (evt) {
     evt.preventDefault();
@@ -82,17 +83,17 @@ function galleryCreateCard(image, title){
     const galleryImage = galleryElement.querySelector(".gallery__image");
     const galleryText = galleryElement.querySelector(".gallery__text");
     const galleryTrash = galleryElement.querySelector(".gallery__trash-button");
-    const galleryLike = galleryElement.querySelector(".gallery__like-button")
+    const galleryLike = galleryElement.querySelector(".gallery__like-button");
     galleryImage.src = image;
     galleryImage.alt = title;
     galleryText.textContent = title;
     
     //delete button:
-galleryTrash.addEventListener("click", evt => {
+galleryTrash.addEventListener("click", () => {
     galleryTrash.parentElement.remove();
 });
 //like-button
-galleryLike.addEventListener("click", evt => {
+galleryLike.addEventListener("click", () => {
     galleryLike.classList.toggle("gallery__like-button_active");
 });
     //picture
@@ -103,18 +104,14 @@ galleryImage.addEventListener('click', (evt) => {
     
     toggleModal(picturePopout);
 });
-    return galleryElement
+    return galleryElement;
 
-};
+}
+
 function galleryHandleCard(image, title){
-        galleryCreateCard(image, title)
         galleryContainer.prepend(galleryCreateCard(image, title));
 
 }
-function galleryInitialCardHandler(image, title){
-    galleryCreateCard(image, title);
-    galleryContainer.append(galleryCreateCard(image, title));
-};
 
 function galleryFormSubmitHandler (evt) {
     evt.preventDefault();
@@ -127,7 +124,7 @@ function galleryFormSubmitHandler (evt) {
 
 
 //run initial cards through
-initialCards.forEach(thingy => galleryInitialCardHandler(thingy.link, thingy.name));
+initialCards.forEach((thingy) => galleryHandleCard(thingy.link, thingy.name));
 
 profileFormElement.addEventListener('submit', profileFormSubmitHandler);
 editBtn.addEventListener("click", () => toggleModal(profilePopout));

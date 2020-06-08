@@ -1,5 +1,7 @@
 .popout__picture{
     max-height: 75vh;
     max-width: 75vw;
-    align-self: center;
+     -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
 }
