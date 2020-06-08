@@ -1,3 +1,4 @@
 .popout__container_active{
-    display: grid;
+    visibility: visible;
+    transition: 1s visibility opacity linear;
 }
