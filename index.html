@@ -37,8 +37,11 @@
                 <button class="popout__close-button"></button>
                 <form class="popout__form ">
                     <h2 class="popout__form-text">Edit profile</h2>
-                <input class="popout__form-input popout__form-input_type_name" type="text" id="name" name="name" value="Jacques Cousteau">
-                <input class="popout__form-input popout__form-input_type_job" type="text" id="about" name="about-me" value="Explorer">
+                <input required id="name" class="popout__form-input popout__form-input_type_name" type="text" name="name" minlength="2" maxlength="40" value="Jacques Cousteau">
+                <span id="name-error" class="popout__form-input-error popout__form-input_type_image-error"></span>
+                <input required id="about" class="popout__form-input popout__form-input_type_job" type="text" name="about-me" minlength="2" maxlength="200" value="Explorer">
+                <span id="about-error" class="popout__form-input-error popout__form-input_type_name-error"></span>
+
                     <button class="popout__button popout__button_type_save" type="submit" value="Save">Save</button>
                 </form>
             </div>
@@ -46,11 +49,13 @@
                 <section class="popout popout_gallery-add">
             <div class="popout__container popout__container_gallery-add">
                 <button class="popout__close-button "></button>
-                <form class="popout__form popout_gallery-add__form">
+                <form class="popout__form popout_gallery-add__form" novalidate>
                     <h2 class="popout__form-text popout_gallery-add__form-text">New Place</h2>
-                <input class="popout__form-input popout__form-input_type_title" type="text" id="title" name="title" placeholder="Title" >
-                <input class="popout__form-input popout__form-input_type_image" type="text" id="image-link" name="image-link" placeholder="Image link" >
-                    <button class="popout__button popout__button_type_create" type="submit" value="Save">Create</button>
+                <input required id="title" class="popout__form-input popout__form-input_type_title" type="text" minlength="1" maxlength="30" id="title" name="title" placeholder="Title" >
+                    <span id="title-error" class="popout__form-input-error popout__form-input_type_title-error"></span>
+                <input required id="image" class="popout__form-input popout__form-input_type_image" type="url" id="image-link" name="image-link" placeholder="Image link" >
+                    <span id="image-error" class="popout__form-input-error popout__form-input_type_image-error"></span>
+                    <button disabled class="popout__button popout__button_disabled popout__button_type_create" type="submit" value="Save">Create</button>
                 </form>
             </div>
         </section>
@@ -70,5 +75,6 @@
         </li>
     </template>
     <script src="index.js"></script>
+    <script src="validate.js"></script>
 </body>
 </html>

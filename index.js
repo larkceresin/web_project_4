@@ -20,7 +20,7 @@ const galleryFormElement = galleryPopout.querySelector(".popout__form");
 const galleryCloseBtn = galleryPopout.querySelector(".popout__close-button");
 const titleInput = galleryFormElement.querySelector(".popout__form-input_type_title");
 const imageInput = galleryFormElement.querySelector(".popout__form-input_type_image");
-
+const createBtn = galleryFormElement.querySelector(".popout__button");
 
 //gallery
 const galleryTemplate = document.querySelector("#gallery-object").content;
@@ -113,18 +113,42 @@ function galleryHandleCard(image, title){
 
 }
 
+//run initial cards through
+initialCards.forEach((thingy) => galleryHandleCard(thingy.link, thingy.name));
+
+
 function galleryFormSubmitHandler (evt) {
     evt.preventDefault();
     galleryHandleCard(imageInput.value, titleInput.value);
     
    galleryFormElement.reset();
+    setSubmitButtonState(false);
     toggleModal(galleryPopout);
 }
 
 
 
-//run initial cards through
-initialCards.forEach((thingy) => galleryHandleCard(thingy.link, thingy.name));
+const modalOtherToggle = () => {
+    const modalList = Array.from(document.querySelectorAll(".popout__container"));
+    modalList.forEach( (modal) => {
+        modal.addEventListener("click", (evt) => {
+        toggleModal(evt.target);
+            console.log(`hei`);
+        });
+
+    });
+    modalList.forEach((modal) => {
+        
+        document.addEventListener("keydown", (evt) =>{
+            if (evt.keyCode === 27){
+                toggleModal(document.querySelector(".popout__container_active"));
+        };
+    });
+   })
+}
+
+
+modalOtherToggle();
 
 profileFormElement.addEventListener('submit', profileFormSubmitHandler);
 editBtn.addEventListener("click", () => toggleModal(profilePopout));
