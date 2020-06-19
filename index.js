@@ -20,7 +20,6 @@ const galleryFormElement = galleryPopout.querySelector(".popout__form");
 const galleryCloseBtn = galleryPopout.querySelector(".popout__close-button");
 const titleInput = galleryFormElement.querySelector(".popout__form-input_type_title");
 const imageInput = galleryFormElement.querySelector(".popout__form-input_type_image");
-const createBtn = galleryFormElement.querySelector(".popout__button");
 
 //gallery
 const galleryTemplate = document.querySelector("#gallery-object").content;
@@ -137,14 +136,15 @@ const modalOtherToggle = () => {
         });
 
     });
-    modalList.forEach((modal) => {
+    modalList.forEach(() => {
         
         document.addEventListener("keydown", (evt) =>{
-            if (evt.keyCode === 27){
+            const escKeyCode = 27;
+            if (evt.keyCode === escKeyCode){
                 toggleModal(document.querySelector(".popout__container_active"));
-        };
+        }
     });
-   })
+   });
 }
 
 
