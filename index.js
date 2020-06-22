@@ -132,7 +132,6 @@ const modalOtherToggle = () => {
     modalList.forEach( (modal) => {
         modal.addEventListener("click", (evt) => {
         toggleModal(evt.target);
-            console.log(`hei`);
         });
 
     });
