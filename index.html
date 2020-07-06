@@ -35,7 +35,7 @@
         <section class="popout popout_profile-edit">
             <div class="popout__container popout__container_profile-edit">
                 <button class="popout__close-button"></button>
-                <form class="popout__form ">
+                <form class="popout__form popout_profile__form">
                     <h2 class="popout__form-text">Edit profile</h2>
                 <input required id="name" class="popout__form-input popout__form-input_type_name" type="text" name="name" minlength="2" maxlength="40" value="Jacques Cousteau">
                 <span id="name-error" class="popout__form-input-error popout__form-input_type_image-error"></span>
@@ -74,7 +74,8 @@
             <div class="gallery__group"><h3 class="gallery__text"> Great Peaks</h3><button class="gallery__like-button"></button></div>
         </li>
     </template>
-    <script src="index.js"></script>
-    <script src="validate.js"></script>
+    <script type="module" src="./Card.js"></script>
+    <script type="module" src="./FormValidator.js"></script>
+    <script type="module" src="./index.js"></script>
 </body>
 </html>
