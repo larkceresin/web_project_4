@@ -1,3 +1,5 @@
+import {Card} from "./Card.js";
+import {FormValidator} from "./FormValidator.js";
 //profile modal
 const profilePopout = document.querySelector(".popout__container_profile-edit");
 
@@ -22,7 +24,6 @@ const titleInput = galleryFormElement.querySelector(".popout__form-input_type_ti
 const imageInput = galleryFormElement.querySelector(".popout__form-input_type_image");
 
 //gallery
-const galleryTemplate = document.querySelector("#gallery-object").content;
 const galleryContainer = document.querySelector(".gallery__grid");
 
 //picture modal
@@ -58,6 +59,14 @@ const initialCards = [
         link: "images/waterfalling__Oliver-Ash.jpg"
     }
 ];
+const defaultConfig = {
+  formSelector: ".popout__form",
+  inputSelector: ".popout__form-input",
+  submitButtonSelector: ".popout__button",
+  inactiveButtonClass: "popout__button_disabled",
+  inputErrorClass: "popout__form-input_error",
+  errorClass: "popout__form-input-error_active"
+}
 
 
 
@@ -76,55 +85,41 @@ function profileFormSubmitHandler (evt) {
     toggleModal(profilePopout);
 }
 
+const profileValidator = new FormValidator(defaultConfig, profileFormElement);
+const galleryValidator = new FormValidator(defaultConfig, galleryFormElement);
+profileValidator.enableValidation();
+galleryValidator.enableValidation();
 
-function galleryCreateCard(image, title){
-    const galleryElement = galleryTemplate.cloneNode(true);
-    const galleryImage = galleryElement.querySelector(".gallery__image");
-    const galleryText = galleryElement.querySelector(".gallery__text");
-    const galleryTrash = galleryElement.querySelector(".gallery__trash-button");
-    const galleryLike = galleryElement.querySelector(".gallery__like-button");
-    galleryImage.src = image;
-    galleryImage.alt = title;
-    galleryText.textContent = title;
+
+function galleryHandleCard(data){
+    const card = new Card (data, "#gallery-object")
+       return galleryContainer.prepend(card.generateCard());
+
+}
+
+//run initial cards through
+initialCards.forEach((item) => galleryHandleCard(item));
+
+
+function galleryFormSubmitHandler (evt) {
+    evt.preventDefault();
+    galleryHandleCard({name:titleInput.value, link: imageInput.value});
     
-    //delete button:
-galleryTrash.addEventListener("click", () => {
-    galleryTrash.parentElement.remove();
-});
-//like-button
-galleryLike.addEventListener("click", () => {
-    galleryLike.classList.toggle("gallery__like-button_active");
-});
+   galleryFormElement.reset();
+    toggleModal(galleryPopout);
+}
     //picture
-galleryImage.addEventListener('click', (evt) => {
+const pictureToggle = () => {
+    let pictureList = Array.from(document.qurySelectorAll(".gallery__image"));
+    pictureList.forEach((galleryImage) =>
+                        {galleryImage.addEventListener('click', (evt) => {
     popoutImage.src = evt.target.src;
     popoutImage.alt = evt.target.alt;
     popoutTitle.textContent = evt.target.alt;
     
     toggleModal(picturePopout);
-});
-    return galleryElement;
-
-}
-
-function galleryHandleCard(image, title){
-        galleryContainer.prepend(galleryCreateCard(image, title));
-
-}
-
-//run initial cards through
-initialCards.forEach((thingy) => galleryHandleCard(thingy.link, thingy.name));
-
-
-function galleryFormSubmitHandler (evt) {
-    evt.preventDefault();
-    galleryHandleCard(imageInput.value, titleInput.value);
-    
-   galleryFormElement.reset();
-    setSubmitButtonState(false);
-    toggleModal(galleryPopout);
-}
-
+            });
+    })}
 
 
 const modalOtherToggle = () => {
@@ -145,7 +140,6 @@ const modalOtherToggle = () => {
     });
    });
 }
-
 
 modalOtherToggle();
 
