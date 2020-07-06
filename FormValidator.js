@@ -24,7 +24,7 @@ class FormValidator {
         errorElement.classList.remove("popout__form-input-error_active");
         errorElement.textContent = "";
     }
-    _checkInputValidity(inputElement) {
+    _checkInputValidity() {
         this._inputList.forEach((inputElement) => {
             if (!inputElement.validity.valid){
             this._showInputError(inputElement);
