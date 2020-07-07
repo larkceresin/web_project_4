@@ -1,5 +1,6 @@
 import {Card} from "./Card.js";
 import {FormValidator} from "./FormValidator.js";
+import {toggleModal} from "./tools.js";
 //profile modal
 const profilePopout = document.querySelector(".popout__container_profile-edit");
 
@@ -70,10 +71,6 @@ const defaultConfig = {
 
 
 
-function toggleModal(popout) { 
-
-    popout.classList.toggle("popout__container_active");
-}
    
 
 function profileFormSubmitHandler (evt) {
