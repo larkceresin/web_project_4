@@ -1,5 +1,6 @@
 import {Card} from "./Card.js";
 import {FormValidator} from "./FormValidator.js";
+import "./pages/index.css";
 //profile modal
 const profilePopout = document.querySelector(".popout__container_profile-edit");
 
