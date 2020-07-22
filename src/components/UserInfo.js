@@ -7,7 +7,8 @@ class UserInfo{
         
     }
     setUserInfo(){
-        
+        document.querySelector(".profile__name").textContent = this._name;
+        document.querySelector(".profile__profession").textContent = this._job;
     }
 }
 export default UserInfo

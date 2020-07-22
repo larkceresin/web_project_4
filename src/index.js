@@ -11,11 +11,11 @@ import "./pages/index.css";
 import { data } from "autoprefixer";
 
 const profileForm = new PopupWithForm({popupSelector:profilePopout, formSubmission: ()=> {
-    nameOutput.textContent = nameInput.value;
-    jobOutput.textContent = jobInput.value;
+    const profileInfo = new UserInfo(nameInput.value, jobInput.value);
+    profileInfo.setUserInfo();
     
     toggleModal(profilePopout);
-    galleryForm.close()}})
+    profileForm.close()}})
 
 const profileValidator = new FormValidator(defaultConfig, profileFormElement);
 const galleryValidator = new FormValidator(defaultConfig, galleryFormElement);
@@ -39,7 +39,7 @@ cardList.renderer();
 const galleryForm = new PopupWithForm({popupSelector:galleryPopout, formSubmission: ()=> {
         const card = new Card ({data: galleryForm.inputValues, handleCardClick:()=>{
             const imagePopup = new PopupWithImage(picturePopout);
-            imagePopup.open({link:data.link, name:data.name});} 
+            imagePopup.open({link:imageInput.value, name:titleInput.value});} 
         }, "#gallery-object");
         cardList.addItem(card.generateCard());
         galleryForm.close()}})
