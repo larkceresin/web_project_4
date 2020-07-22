@@ -66,4 +66,4 @@ const defaultConfig = {
   inputErrorClass: "popout__form-input_error",
   errorClass: "popout__form-input-error_active"
 }
-export {profilePopout, profileFormElement, nameInput,jobInput,profileCloseBtn,profile,nameOutput,jobOutput,editBtn,addButton,galleryPopout,galleryCloseBtn,titleInput,imageInput,galleryContainer,picturePopout, pictureCloseBtn, popoutImage, popoutTitle, initialCards, defaultConfig}
+export {profilePopout, profileFormElement, nameInput,jobInput,profileCloseBtn,profile,nameOutput,jobOutput,editBtn,addButton,galleryPopout, galleryFormElement, galleryCloseBtn,titleInput,imageInput,galleryContainer,picturePopout, pictureCloseBtn, popoutImage, popoutTitle, initialCards, defaultConfig}

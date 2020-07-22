@@ -1,93 +1,50 @@
-import "./styles/index.css";
+
 import {Card} from "./components/Card.js";
 import {FormValidator} from "./components/FormValidator.js";
 import {toggleModal} from "./utils/utils.js";
-import {profilePopout, profileFormElement, nameInput,jobInput,profileCloseBtn,profile,nameOutput,jobOutput,editBtn,addButton,galleryPopout,galleryCloseBtn,titleInput,imageInput,galleryContainer,picturePopout, pictureCloseBtn, popoutImage, popoutTitle, initialCards, defaultConfig} from "./utils/constants.js";
+import {profilePopout, profileFormElement, nameInput,jobInput,profileCloseBtn,profile,nameOutput,jobOutput,editBtn,addButton,galleryPopout,galleryFormElement,galleryCloseBtn,titleInput,imageInput,galleryContainer,picturePopout, pictureCloseBtn, popoutImage, popoutTitle, initialCards, defaultConfig} from "./utils/constants.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
+import "./pages/index.css";
+import { data } from "autoprefixer";
 
-
-
-function profileFormSubmitHandler (evt) {
-    evt.preventDefault();
-
+const profileForm = new PopupWithForm({popupSelector:profilePopout, formSubmission: ()=> {
     nameOutput.textContent = nameInput.value;
     jobOutput.textContent = jobInput.value;
     
     toggleModal(profilePopout);
-}
+    galleryForm.close()}})
 
 const profileValidator = new FormValidator(defaultConfig, profileFormElement);
 const galleryValidator = new FormValidator(defaultConfig, galleryFormElement);
 profileValidator.enableValidation();
 galleryValidator.enableValidation();
 
-
-function galleryHandleCard(data){
-    const card = new Card (data, templateSelector:"#gallery-object", handleCardClick:function(evt)=>{ const picturePopout = document.querySelector(".popout__container_picture-view");
-        const popoutImage = picturePopout.querySelector(".popout__picture");
-        const popoutTitle = picturePopout.querySelector(".popout__title");
-
-        popoutImage.src = evt.target.src;
-        popoutImage.alt = evt.target.alt;
-        popoutTitle.textContent = evt.target.alt;
-        toggleModal(picturePopout);})
-       return galleryContainer.prepend(card.generateCard());
-
-}
-
-//run initial cards through
-initialCards.forEach((item) => galleryHandleCard(item));
-
-
-function galleryFormSubmitHandler (evt) {
-    evt.preventDefault();
-    galleryHandleCard({name:titleInput.value, link: imageInput.value});
-    
-   galleryFormElement.reset();
-    toggleModal(galleryPopout);
-}
-    //picture
-const pictureToggle = () => {
-    let pictureList = Array.from(document.qurySelectorAll(".gallery__image"));
-    pictureList.forEach((galleryImage) =>
-                        {galleryImage.addEventListener('click', (evt) => {
-    popoutImage.src = evt.target.src;
-    popoutImage.alt = evt.target.alt;
-    popoutTitle.textContent = evt.target.alt;
-    
-    toggleModal(picturePopout);
-            });
-    })}
-
-
-const modalOtherToggle = () => {
-    const modalList = Array.from(document.querySelectorAll(".popout__container"));
-    modalList.forEach( (modal) => {
-        modal.addEventListener("click", (evt) => {
-        toggleModal(evt.target);
-        });
-
-    });
-    modalList.forEach(() => {
+const cardList = new Section({
+    items: initialCards,
+    renderer: (data)=> { 
+        const card = new Card ({
+            data, handleCardClick:()=>{
+                const imagePopup = new PopupWithImage(picturePopout);
+                imagePopup.open({data});} 
+            }, "#gallery-object")
+            cardList.addItem(card.generateCard());
+        }, 
         
-        document.addEventListener("keydown", (evt) =>{
-            const escKeyCode = 27;
-            if (evt.keyCode === escKeyCode){
-                toggleModal(document.querySelector(".popout__container_active"));
-        }
-    });
-   });
-}
+}, galleryContainer)
+cardList.renderer();
 
-modalOtherToggle();
+const galleryForm = new PopupWithForm({popupSelector:galleryPopout, formSubmission: ()=> {
+        const card = new Card ({data: galleryForm.inputValues, handleCardClick:()=>{
+            const imagePopup = new PopupWithImage(picturePopout);
+            imagePopup.open({link:data.link, name:data.name});} 
+        }, "#gallery-object");
+        cardList.addItem(card.generateCard());
+        galleryForm.close()}})
 
-profileFormElement.addEventListener('submit', profileFormSubmitHandler);
-editBtn.addEventListener("click", () => toggleModal(profilePopout));
-profileCloseBtn.addEventListener("click", () => toggleModal(profilePopout));
-addButton.addEventListener("click", () => toggleModal(galleryPopout));
-galleryCloseBtn.addEventListener("click", () => toggleModal(galleryPopout));
-galleryFormElement.addEventListener('submit', galleryFormSubmitHandler);
-pictureCloseBtn.addEventListener("click", () => toggleModal(picturePopout));
+
+
+editBtn.addEventListener("click", () => profileForm.open());
+addButton.addEventListener("click", () => galleryForm.open());

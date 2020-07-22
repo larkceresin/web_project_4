@@ -1,5 +1,5 @@
 class Card {
-  constructor(data, templateSelector, handleCardClick) {
+  constructor({data, handleCardClick}, templateSelector) {
     this._image = data.link;
     this._title = data.name;
     this._templateSelector = templateSelector;
@@ -32,7 +32,7 @@ class Card {
       this._likeButton.classList.toggle("gallery__like-button_active");
        
     });
-    this._element.querySelector(".gallery__image").addEventListener("click", () => this._handleCardClick())
+    this._element.querySelector(".gallery__image").addEventListener("click", this._handleCardClick)
   }
 }
 export { Card };
