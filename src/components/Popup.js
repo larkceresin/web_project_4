@@ -12,6 +12,7 @@ class Popup{
     close(){
          this._popupElement.classList.remove("popout__container_active");
         document.removeEventListener(`keyUp`, this._handleEscClose);
+    
     }
     
     _handleEscClose(evt){
@@ -22,6 +23,11 @@ class Popup{
     setEventListeners(){
         this._popupElement.querySelector(".popout__close-button").addEventListener("click", () => 
         this.close());
+        this._popupElement.addEventListener("click", (e)=>{
+           if(e.target !== this)
+    return;
+            this.close();     
+        })
     }
 }
 export default Popup
