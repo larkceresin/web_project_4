@@ -4,7 +4,8 @@ class UserInfo{
         this._job = job;
     }
     getUserInfo(){
-        
+        this._name = document.querySelector(".profile__name").textContent;
+        this._job = document.querySelector(".profile__profession").textContent;
     }
     setUserInfo(){
         document.querySelector(".profile__name").textContent = this._name;

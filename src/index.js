@@ -2,7 +2,7 @@
 import {Card} from "./components/Card.js";
 import {FormValidator} from "./components/FormValidator.js";
 import {toggleModal} from "./utils/utils.js";
-import {profilePopout, profileFormElement, nameInput,jobInput,profileCloseBtn,profile,nameOutput,jobOutput,editBtn,addButton,galleryPopout,galleryFormElement,galleryCloseBtn,titleInput,imageInput,galleryContainer,picturePopout, pictureCloseBtn, popoutImage, popoutTitle, initialCards, defaultConfig} from "./utils/constants.js";
+import {profilePopout, profileFormElement, nameInput,jobInput, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig} from "./utils/constants.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import Section from "./components/Section.js";

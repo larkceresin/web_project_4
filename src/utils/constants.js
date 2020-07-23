@@ -1,15 +1,18 @@
+import endPlace from "../images/cliffside__Katie-Rodriguez.jpg";
+import leaf from "../images/leaf__chuttersnap.jpg";
+import snowyMtn from "../images/snowy-peaks__Joshua-Redekopp.jpg";
+import barrier from "../images/storm-incoming__Reuben-Teo.jpg";
+import neverForever from "../images/wash-hands__Joshua-Reddekopp.jpg";
+import waterCross from "../images/waterfalling__Oliver-Ash.jpg";
 //profile modal
 const profilePopout = document.querySelector(".popout__container_profile-edit");
 
 const profileFormElement = profilePopout.querySelector(".popout__form");
 const nameInput = profileFormElement.querySelector(".popout__form-input_type_name");
 const jobInput = profileFormElement.querySelector(".popout__form-input_type_job");
-const profileCloseBtn = profilePopout.querySelector(".popout__close-button");
 
 //profile
 const profile = document.querySelector(".profile");
-const nameOutput = profile.querySelector(".profile__name");
-const jobOutput = profile.querySelector(".profile__profession");
 const editBtn = profile.querySelector(".profile__edit-button");
 const addButton = profile.querySelector(".profile__add-button");
 
@@ -17,7 +20,6 @@ const addButton = profile.querySelector(".profile__add-button");
 const galleryPopout = document.querySelector(".popout__container_gallery-add");
 
 const galleryFormElement = galleryPopout.querySelector(".popout__form");
-const galleryCloseBtn = galleryPopout.querySelector(".popout__close-button");
 const titleInput = galleryFormElement.querySelector(".popout__form-input_type_title");
 const imageInput = galleryFormElement.querySelector(".popout__form-input_type_image");
 
@@ -26,7 +28,6 @@ const galleryContainer = document.querySelector(".gallery__grid");
 
 //picture modal
 const picturePopout = document.querySelector(".popout__container_picture-view");
-const pictureCloseBtn = picturePopout.querySelector(".popout__close-button");
 const popoutImage =  picturePopout.querySelector(".popout__picture");
 const popoutTitle = picturePopout.querySelector(".popout__title");
 
@@ -34,27 +35,27 @@ const popoutTitle = picturePopout.querySelector(".popout__title");
 const initialCards = [
     {
         name: "The End Place",
-        link: "images/cliffside__Katie-Rodriguez.jpg"
+        link: endPlace
     },
     {
         name: "Turn That Leaf Over",
-        link: "images/leaf__chuttersnap.jpg"
+        link: leaf
     },
     {
         name: "Great Peaks, The Snowy Mountains",
-        link: "images/snowy-peaks__Joshua-Redekopp.jpg"
+        link: snowyMtn
     },
     {
         name: "Barrier Islands",
-        link: "images/storm-incoming__Reuben-Teo.jpg"
+        link: barrier
     },
     {
         name: "Never Forever",
-        link: "images/wash-hands__Joshua-Reddekopp.jpg"
+        link: neverForever
     },
     {
         name: "Water Crossing",
-        link: "images/waterfalling__Oliver-Ash.jpg"
+        link: waterCross
     }
     
 ];
@@ -66,4 +67,4 @@ const defaultConfig = {
   inputErrorClass: "popout__form-input_error",
   errorClass: "popout__form-input-error_active"
 }
-export {profilePopout, profileFormElement, nameInput,jobInput,profileCloseBtn,profile,nameOutput,jobOutput,editBtn,addButton,galleryPopout, galleryFormElement, galleryCloseBtn,titleInput,imageInput,galleryContainer,picturePopout, pictureCloseBtn, popoutImage, popoutTitle, initialCards, defaultConfig}
+export {profilePopout, profileFormElement, nameInput,jobInput, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig}

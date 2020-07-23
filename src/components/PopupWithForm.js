@@ -10,9 +10,10 @@ class PopupWithForm extends Popup{
     }
     setEventListeners(){
         super.setEventListeners();
-        this._popupElement.querySelector(".popout__form").addEventListeners("submit", (evt) => {
+        this._popupElement.querySelector(".popout__form").addEventListeners("submit", () => {
             evt.preventDefault();
-            this._formSubmission()} )
+            this._formSubmission();
+        })
     }
     
     close(){
