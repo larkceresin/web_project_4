@@ -13,8 +13,6 @@ import { data } from "autoprefixer";
 const profileForm = new PopupWithForm({popupSelector:profilePopout, formSubmission: ()=> {
     const profileInfo = new UserInfo(nameInput.value, jobInput.value);
     profileInfo.setUserInfo();
-    
-    toggleModal(profilePopout);
     profileForm.close()}})
 
 const profileValidator = new FormValidator(defaultConfig, profileFormElement);
@@ -37,7 +35,7 @@ const cardList = new Section({
 cardList.renderer();
 
 const galleryForm = new PopupWithForm({popupSelector:galleryPopout, formSubmission: ()=> {
-        const card = new Card ({data: galleryForm.inputValues, handleCardClick:()=>{
+        const card = new Card ({galleryForm.inputValues, handleCardClick:()=>{
             const imagePopup = new PopupWithImage(picturePopout);
             imagePopup.open({link:imageInput.value, name:titleInput.value});} 
         }, "#gallery-object");
