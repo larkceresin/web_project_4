@@ -1,7 +1,7 @@
 
 import {Card} from "./components/Card.js";
 import {FormValidator} from "./components/FormValidator.js";
-import {profilePopout, profileFormElement, nameInput, jobInput, nameOutput, jobOutput, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig} from "./utils/constants.js";
+import {profilePopout, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig} from "./utils/constants.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import Section from "./components/Section.js";
@@ -33,6 +33,7 @@ const profileForm = new PopupWithForm({popupSelector:profilePopout, formSubmissi
     const profileInfo = new UserInfo(".popout__form-input_type_name", ".popout__form-input_type_job");
     profileInfo.setUserInfo();
     profileValidator.enableValidation()}});
+    profileForm.setEventListeners();
 
 
 const galleryForm = new PopupWithForm({popupSelector:galleryPopout, formSubmission: ()=> {
@@ -42,7 +43,7 @@ const galleryForm = new PopupWithForm({popupSelector:galleryPopout, formSubmissi
         }, "#gallery-object");
         cardList.addItem(newCard.generateCard());
         galleryValidator.enableValidation()}})
-
+galleryForm.setEventListeners();
 
 
 editBtn.addEventListener("click", () => {

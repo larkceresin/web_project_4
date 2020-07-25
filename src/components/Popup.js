@@ -6,7 +6,6 @@ class Popup{
         this._handleEscClose = this._handleEscClose.bind(this);
     }
     open(){
-        this.setEventListeners()
         this._popupElement.classList.add("popout__container_active");
         document.addEventListener(`keyup`, this._handleEscClose)
     }
