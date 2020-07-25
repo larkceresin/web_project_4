@@ -14,9 +14,7 @@ class PopupWithForm extends Popup{
     
     close(){
         this._form.reset();
-        super.close();
-        
-        
+        super.close();   
     }
     setEventListeners(){
         this._form.addEventListener("submit", (evt) => {

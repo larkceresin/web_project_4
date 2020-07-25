@@ -6,15 +6,11 @@ import neverForever from "../images/wash-hands__Joshua-Reddekopp.jpg";
 import waterCross from "../images/waterfalling__Oliver-Ash.jpg";
 //profile modal
 const profilePopout = document.querySelector(".popout__container_profile-edit");
-
 const profileFormElement = profilePopout.querySelector(".popout__form");
-const nameInput = profileFormElement.querySelector(".popout__form-input_type_name");
-const jobInput = profileFormElement.querySelector(".popout__form-input_type_job");
+
 
 //profile
 const profile = document.querySelector(".profile");
-const nameOutput = document.querySelector(".profile__name");
-const jobOutput = document.querySelector(".profile__profession")
 const editBtn = profile.querySelector(".profile__edit-button");
 const addButton = profile.querySelector(".profile__add-button");
 
@@ -30,8 +26,7 @@ const galleryContainer = document.querySelector(".gallery__grid");
 
 //picture modal
 const picturePopout = document.querySelector(".popout__container_picture-view");
-const popoutImage =  picturePopout.querySelector(".popout__picture");
-const popoutTitle = picturePopout.querySelector(".popout__title");
+
 
 
 const initialCards = [
@@ -68,4 +63,5 @@ const defaultConfig = {
   inputErrorClass: "popout__form-input_error",
   errorClass: "popout__form-input-error_active"
 }
-export {profilePopout, profileFormElement, nameInput,jobInput, nameOutput, jobOutput, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig}
+const escKeyCode = 27;
+export {profilePopout, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig, escKeyCode}

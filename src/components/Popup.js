@@ -1,4 +1,5 @@
-import {toggleModal} from "../utils/utils";
+import {escKeyCode} from "../utils/constants";
+
 class Popup{
     constructor(popupSelector){
         this._popupElement = popupSelector;
@@ -11,12 +12,11 @@ class Popup{
     }
     close(){
          this._popupElement.classList.remove("popout__container_active");
-        document.removeEventListener(`keyup`, this._handleEscClose)
-    
+        document.removeEventListener(`keyup`, this._handleEscClose);   
     }
     
     _handleEscClose(evt){
-        if (evt.keyCode === 27){
+        if (evt.keyCode === escKeyCode){
             this.close();
         }
     }
