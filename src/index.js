@@ -1,7 +1,6 @@
 
 import {Card} from "./components/Card.js";
 import {FormValidator} from "./components/FormValidator.js";
-import {toggleModal} from "./utils/utils.js";
 import {profilePopout, profileFormElement, nameInput, jobInput, nameOutput, jobOutput, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig} from "./utils/constants.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
@@ -31,9 +30,8 @@ const cardList = new Section({
 cardList.renderer();
 
 const profileForm = new PopupWithForm({popupSelector:profilePopout, formSubmission: ()=> {
-    const profileInfo = new UserInfo(`${nameInput.value}`, `${jobInput.value}`);
-    profileInfo.setUserInfo(data);
-    profileForm.close();
+    const profileInfo = new UserInfo(".popout__form-input_type_name", ".popout__form-input_type_job");
+    profileInfo.setUserInfo();
     profileValidator.enableValidation()}});
 
 
@@ -43,14 +41,14 @@ const galleryForm = new PopupWithForm({popupSelector:galleryPopout, formSubmissi
             imagePopup.open({data});} 
         }, "#gallery-object");
         cardList.addItem(newCard.generateCard());
-        galleryForm.close();
         galleryValidator.enableValidation()}})
 
 
 
 editBtn.addEventListener("click", () => {
     profileForm.open();
- const formValue = new UserInfo(`${nameOutput.textContent}`, `${jobOutput.textContent}`);
+ const formValue = new UserInfo(".profile__name", ".profile__profession");
  formValue.getUserInfo();
+ profileValidator.enableValidation;
 });
 addButton.addEventListener("click", () => galleryForm.open());

@@ -59,7 +59,6 @@ const initialCards = [
         name: "Water Crossing",
         link: waterCross
     }
-    
 ];
 const defaultConfig = {
   formSelector: ".popout__form",
