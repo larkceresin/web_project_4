@@ -13,6 +13,8 @@ const jobInput = profileFormElement.querySelector(".popout__form-input_type_job"
 
 //profile
 const profile = document.querySelector(".profile");
+const nameOutput = document.querySelector(".profile__name");
+const jobOutput = document.querySelector(".profile__profession")
 const editBtn = profile.querySelector(".profile__edit-button");
 const addButton = profile.querySelector(".profile__add-button");
 
@@ -67,4 +69,4 @@ const defaultConfig = {
   inputErrorClass: "popout__form-input_error",
   errorClass: "popout__form-input-error_active"
 }
-export {profilePopout, profileFormElement, nameInput,jobInput, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig}
+export {profilePopout, profileFormElement, nameInput,jobInput, nameOutput, jobOutput, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig}
