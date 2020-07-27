@@ -4,13 +4,12 @@ class UserInfo{
         this._job = document.querySelector(jobSelector);
     }
     getUserInfo(){
-        document.querySelector(".popout__form-input_type_name").value = this._name.textContent;
-        document.querySelector(".popout__form-input_type_job").value = this._job.textContent;
+        return { name: this._name.textContent, job: this._job.textContent};
     }
-    setUserInfo(){
+    setUserInfo({userName, userJob}){
        
-        document.querySelector(".profile__name").textContent = this._name.value;
-        document.querySelector(".profile__profession").textContent = this._job.value;
+        this._name.textContent = userName;
+        this._job.textContent = userJob;
        
     }
 }

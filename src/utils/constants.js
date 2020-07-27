@@ -7,7 +7,8 @@ import waterCross from "../images/waterfalling__Oliver-Ash.jpg";
 //profile modal
 const profilePopout = document.querySelector(".popout__container_profile-edit");
 const profileFormElement = profilePopout.querySelector(".popout__form");
-
+const nameInput = profilePopout.querySelector(".popout__form-input_type_name");
+const jobInput = profilePopout.querySelector(".popout__form-input_type_job");
 
 //profile
 const profile = document.querySelector(".profile");
@@ -64,4 +65,4 @@ const defaultConfig = {
   errorClass: "popout__form-input-error_active"
 }
 const escKeyCode = 27;
-export {profilePopout, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig, escKeyCode}
+export {profilePopout, nameInput, jobInput, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig, escKeyCode}

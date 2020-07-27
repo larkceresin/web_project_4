@@ -7,6 +7,8 @@ class Card {
       this._handleCardClick = handleCardClick;
     this._trashButton = this._element.querySelector(".gallery__trash-button");
     this._likeButton = this._element.querySelector(".gallery__like-button");
+    this._galleryImage =  this._element.querySelector(".gallery__image");
+    this._galleryText = this._element.querySelector(".gallery__text");
   }
   _getTemplate() {
     const cardElement = document
@@ -17,21 +19,21 @@ class Card {
   }
   generateCard() {
     this._setEventListeners();
-    this._element.querySelector(".gallery__image").src = this._image;
-    this._element.querySelector(".gallery__image").alt = this._title;
-    this._element.querySelector(".gallery__text").textContent = this._title;
+    this._galleryImage.src = this._image;
+    this._galleryImage.alt = this._title;
+    this._galleryText.textContent = this._title;
     return this._element;
   }
   _setEventListeners() {
     this._trashButton.addEventListener("click", (evt) => {
-      evt.target.closest(".gallery__container").remove();
+      this._element.remove();
        
     });
     this._likeButton.addEventListener("click", () => {
       this._likeButton.classList.toggle("gallery__like-button_active");
        
     });
-    this._element.querySelector(".gallery__image").addEventListener("click", this._handleCardClick)
+    this._galleryImage.addEventListener("click", this._handleCardClick)
   }
 }
 export { Card };
