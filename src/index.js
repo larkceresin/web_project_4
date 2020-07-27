@@ -33,7 +33,7 @@ const cardList = new Section({
 }, galleryContainer)
 cardList.renderer();
 
-const profileForm = new PopupWithForm({popupSelector:profilePopout, formSubmission: ()=> {
+const profileForm = new PopupWithForm({popupSelector:profilePopout, formSubmission: (data)=> {
     userInfo.setUserInfo({userName: nameInput.value, userJob: jobInput.value });
     profileValidator.enableValidation()}});
     profileForm.setEventListeners();

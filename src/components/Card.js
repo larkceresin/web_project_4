@@ -33,7 +33,7 @@ class Card {
       this._likeButton.classList.toggle("gallery__like-button_active");
        
     });
-    this._galleryImage.addEventListener("click", this._handleCardClick)
+    this._galleryImage.addEventListener("click", () => this._handleCardClick({name: this._title, link: this._image}))
   }
 }
 export { Card };
