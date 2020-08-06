@@ -1,7 +1,7 @@
 
 import {Card} from "./components/Card.js";
 import {FormValidator} from "./components/FormValidator.js";
-import {profilePopout, nameInput, jobInput, deletePopout, avatarPopout, privateInput, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig} from "./utils/constants.js";
+import {profilePopout, nameInput, jobInput, deletePopout, avatarPopout, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig} from "./utils/constants.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import Section from "./components/Section.js";
@@ -26,21 +26,16 @@ api.getCardList().then((res)=> {
             data, handleCardClick:()=>{
                 imagePopup.open({data})}, handleTrashClick: (id)=> {
                     toggleModal(deletePopout)
-                    var result = confirm("are you sure");
-                    if (result == true) { 
-                        card.remove();
-                    api.removeCard(id)}
-                    // 
-                   // privateInput.value = id;
-                }  
+                    }  
             }, "#gallery-object")
             cardList.addItem(card.generateCard());
             api.getUserInfo()
-            .then((res)=>{
+                .then((res)=>{
                 if (res._id != data.owner._id){
-                    card.hideTrash();
+                    card.hideTrash()
                 }
             })
+                .catch((err)=> console.log(err))
         }, 
         
 }, galleryContainer)
@@ -52,7 +47,6 @@ const galleryForm = new PopupWithForm({popupSelector:galleryPopout, formSubmissi
     const newCard = new Card ({data: res, handleCardClick:(data)=>{
         imagePopup.open({data})}, handleTrashClick: (id)=> {
             toggleModal(deletePopout) 
-            privateInput.value = id;
         }  } 
     , "#gallery-object");
     cardList.addItem(newCard.generateCard());
@@ -65,8 +59,7 @@ addButton.addEventListener("click", () => galleryForm.open());
 })
 
 const deleteForm = new PopupWithForm({popupSelector: deletePopout, formSubmission: ()=>{
-    console.log("hi")
-return true}})
+    console.log("submit")}})
 deleteForm.setEventListeners();
 
 api.getUserInfo().then((res)=> {
