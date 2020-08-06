@@ -1,7 +1,8 @@
 class Card {
-  constructor({data, handleCardClick}, templateSelector) {
+  constructor({data, handleCardClick, handleTrashClick}, templateSelector) {
     this._image = data.link;
     this._title = data.name;
+    this._id = data._id; 
     this._templateSelector = templateSelector;
     this._element = this._getTemplate();
       this._handleCardClick = handleCardClick;
@@ -9,6 +10,7 @@ class Card {
     this._likeButton = this._element.querySelector(".gallery__like-button");
     this._galleryImage =  this._element.querySelector(".gallery__image");
     this._galleryText = this._element.querySelector(".gallery__text");
+    this._handleTrashClick = handleTrashClick;
   }
   _getTemplate() {
     const cardElement = document
@@ -24,9 +26,15 @@ class Card {
     this._galleryText.textContent = this._title;
     return this._element;
   }
+  remove(){
+    this._element.remove();
+  }
+  hideTrash(){
+    this._trashButton.style.display = "none";
+  }
   _setEventListeners() {
     this._trashButton.addEventListener("click", (evt) => {
-      this._element.remove();
+      this._handleTrashClick(this._id); //submit with ID of element
        
     });
     this._likeButton.addEventListener("click", () => {

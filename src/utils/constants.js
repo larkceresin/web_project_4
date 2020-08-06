@@ -28,7 +28,11 @@ const galleryContainer = document.querySelector(".gallery__grid");
 //picture modal
 const picturePopout = document.querySelector(".popout__container_picture-view");
 
-
+//trash form
+const deletePopout = document.querySelector(".popout__container_delete");
+const privateInput = deletePopout.querySelector(".popout__form-private")
+//avatar form
+const avatarPopout = document.querySelector(".popout__container_picture-change");
 
 const initialCards = [
     {
@@ -65,4 +69,4 @@ const defaultConfig = {
   errorClass: "popout__form-input-error_active"
 }
 const escKeyCode = 27;
-export {profilePopout, nameInput, jobInput, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig, escKeyCode}
+export {profilePopout, nameInput, deletePopout, privateInput, avatarPopout, jobInput, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig, escKeyCode}

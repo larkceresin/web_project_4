@@ -6,6 +6,9 @@
 @import url(__like-button/_active/gallery__like-button_active.css);
 @import url(__text/gallery__text.css);
 @import url(__trash-button/gallery__trash-button.css);
+@import url(__like-container/gallery__like-container.css);
+@import url(__like-count/gallery__like-count.css);
+
 .gallery{
     margin: 0;
     margin-top: 35px;
