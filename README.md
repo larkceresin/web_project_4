@@ -1,6 +1,7 @@
-# Project 4-7: Around The U.S.
+# Project 4-9: Around The U.S.
 [Link to the project live](https://larkceresin.github.io/web_project_4/)
 This is a project where I'm just starting to learn the basics of JavaScript to make a website more interactable, and dynamic.
+Started with the basics in just into learning javascript, to getting more of a full handle on vanilla javascript.
 ### Overview
 
 * Figma
