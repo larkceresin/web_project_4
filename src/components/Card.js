@@ -38,8 +38,12 @@ class Card {
   setLikeCount(count){
     this._likeCount.textContent = count;
   }
-  toggleLike(){
-    this.likeButton.classList.toggle("gallery__like-button_active");
+  addLike(){
+    this.likeButton.classList.add("gallery__like-button_active");
+  }
+  removeLike(){
+    this.likeButton.classList.remove("gallery__like-button_active");
+
   }
   _setEventListeners() {
     this._trashButton.addEventListener("click", (evt) => {
@@ -48,7 +52,6 @@ class Card {
     });
     this.likeButton.addEventListener("click", () => {
       this._handleLikeClick(this._id);
-      console.log("like");
     });
     this._galleryImage.addEventListener("click", () => this._handleCardClick({name: this._title, link: this._image}))
   }

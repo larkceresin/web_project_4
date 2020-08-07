@@ -35,14 +35,14 @@ class Api{
             .catch((err) => console.log(err))
     }
     changeLikeCardStatus(cardId, like){
-        if (like){return fetch(this._baseUrl + `/cards/like/` + cardId,{
+        if (like){return fetch(this._baseUrl + `/cards/likes/` + cardId,{
             headers: this._headers,
             method: "PUT",
             body: JSON.stringify({
                 like})})
             .then((res) => res.ok? res.json() : Promise.reject(`Error!`+ res.status + res.statusText))
             .catch((err) => console.log(err))
-        } else {return fetch(this._baseUrl + `/cards/like/` + cardId,{
+        } else {return fetch(this._baseUrl + `/cards/likes/` + cardId,{
             headers: this._headers,
             method: "DELETE"})
             .then((res) => res.ok? res.json() : Promise.reject(`Error!`+ res.status + res.statusText))

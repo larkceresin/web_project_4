@@ -33,13 +33,16 @@ api.getCardList().then((res)=> {
             }
             deleteForm.addEventListener("submit", deleteMethod())
                     }, handleLikeClick: (id) => {
-                        card.toggleLike();
-                        if (card.likeButton.classList.contains(".gallery__like-button_active")){
-                                api.changeLikeCardStatus( id, true)
+                        if (!card.likeButton.classList.contains(".gallery__like-button_active")){
+                            card.addLike();    
+                            api.changeLikeCardStatus(id, true);
+                     console.log("add")
                         } else {
+                            card.removeLike();
                             api.changeLikeCardStatus( id, false)
-                        } card.setLikeCount(card.likes.length)
-
+                        console.log("remove")
+                        }
+                         card.setLikeCount(card.likes.length)
                     }  
             }, "#gallery-object")
             card.setLikeCount(data.likes.length)
