@@ -1,5 +1,5 @@
 class Card {
-  constructor({data, handleCardClick, handleTrashClick}, templateSelector) {
+  constructor({data, handleCardClick, handleTrashClick, handleLikeClick}, templateSelector) {
     this._image = data.link;
     this._title = data.name;
     this._id = data._id; 
@@ -7,10 +7,13 @@ class Card {
     this._element = this._getTemplate();
       this._handleCardClick = handleCardClick;
     this._trashButton = this._element.querySelector(".gallery__trash-button");
-    this._likeButton = this._element.querySelector(".gallery__like-button");
+    this.likeButton = this._element.querySelector(".gallery__like-button");
     this._galleryImage =  this._element.querySelector(".gallery__image");
     this._galleryText = this._element.querySelector(".gallery__text");
     this._handleTrashClick = handleTrashClick;
+    this._likeCount = this._element.querySelector(".gallery__like-count");
+    this._handleLikeClick = handleLikeClick;
+    this.likes = data.likes
   }
   _getTemplate() {
     const cardElement = document
@@ -26,20 +29,26 @@ class Card {
     this._galleryText.textContent = this._title;
     return this._element;
   }
-  remove(){
+  removeCard(){
     this._element.remove();
   }
   hideTrash(){
     this._trashButton.style.display = "none";
+  }
+  setLikeCount(count){
+    this._likeCount.textContent = count;
+  }
+  toggleLike(){
+    this.likeButton.classList.toggle("gallery__like-button_active");
   }
   _setEventListeners() {
     this._trashButton.addEventListener("click", (evt) => {
       this._handleTrashClick(this._id); //submit with ID of element
        
     });
-    this._likeButton.addEventListener("click", () => {
-      this._likeButton.classList.toggle("gallery__like-button_active");
-       
+    this.likeButton.addEventListener("click", () => {
+      this._handleLikeClick(this._id);
+      console.log("like");
     });
     this._galleryImage.addEventListener("click", () => this._handleCardClick({name: this._title, link: this._image}))
   }

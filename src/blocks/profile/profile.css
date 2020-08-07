@@ -5,6 +5,7 @@
 @import url(__name-line/profile__name-line.css);
 @import url(__picture/profile__picture.css);
 @import url(__profession/profile__profession.css);
+@import url(__picture/_overlay/profile__picture_overlay.css);
 .profile{
     display: -webkit-box;
     display: -ms-flexbox;

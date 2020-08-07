@@ -32,7 +32,11 @@ const picturePopout = document.querySelector(".popout__container_picture-view");
 const deletePopout = document.querySelector(".popout__container_delete");
 //avatar form
 const avatarPopout = document.querySelector(".popout__container_picture-change");
-
+const avatarFormElement = avatarPopout.querySelector(".popout__form")
+const avatarLink = avatarPopout.querySelector(".popout__form-input_type_image");
+//avatar 
+const avatarEdit = document.querySelector(".profile__picture_overlay");
+const avatar = document.querySelector(".profile__picture");
 const initialCards = [
     {
         name: "The End Place",
@@ -68,4 +72,4 @@ const defaultConfig = {
   errorClass: "popout__form-input-error_active"
 }
 const escKeyCode = 27;
-export {profilePopout, nameInput, deletePopout, avatarPopout, jobInput, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig, escKeyCode}
+export {profilePopout, avatar, avatarFormElement, nameInput, deletePopout, avatarPopout, avatarLink, avatarEdit, jobInput, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig, escKeyCode}
