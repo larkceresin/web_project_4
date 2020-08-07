@@ -33,14 +33,15 @@ api.getCardList().then((res)=> {
             }
             deleteForm.addEventListener("submit", deleteMethod())
                     }, handleLikeClick: (id) => {
-                        if (!card.likeButton.classList.contains(".gallery__like-button_active")){
-                            card.addLike();    
-                            api.changeLikeCardStatus(id, true);
-                     console.log("add")
-                        } else {
+                        console.log(card.likeButton.classList.contains("gallery__like-button_active"))
+                        if (card.likeButton.classList.contains("gallery__like-button_active")){
                             card.removeLike();
                             api.changeLikeCardStatus( id, false)
-                        console.log("remove")
+                    console.log("remove")                            
+                        } else {
+                            card.addLike();    
+                            api.changeLikeCardStatus(id, true);
+                    console.log("add")
                         }
                          card.setLikeCount(card.likes.length)
                     }  
@@ -72,7 +73,19 @@ const galleryForm = new PopupWithForm({popupSelector:galleryPopout, formSubmissi
                 deleteForm.removeEventListener("submit", deleteMethod)
             }
             deleteForm.addEventListener("submit", deleteMethod)
-        }  } 
+        }, handleLikeClick: (id) => {
+            console.log(card.likeButton.classList.contains("gallery__like-button_active"))
+            if (card.likeButton.classList.contains("gallery__like-button_active")){
+                card.removeLike();
+                api.changeLikeCardStatus( id, false)
+        console.log("remove")                            
+            } else {
+                card.addLike();    
+                api.changeLikeCardStatus(id, true);
+        console.log("add")
+            }
+             card.setLikeCount(card.likes.length)
+        }    } 
     , "#gallery-object");
     cardList.addItem(newCard.generateCard());
     galleryValidator.enableValidation()}
