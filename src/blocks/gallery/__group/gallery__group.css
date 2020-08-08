@@ -1,6 +1,6 @@
 .gallery__group{
     background-color: #FFFFFF;
-    height: 80px;
+    min-height: 80px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

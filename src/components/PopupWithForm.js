@@ -17,10 +17,17 @@ class PopupWithForm extends Popup{
         this._form.reset();
         super.close();   
     }
+    setDeleteHandle(deleteHandle){
+        this._deleteHandle = deleteHandle;
+    }
+    runDeleteHandle(){
+        this._deleteHandle()
+    }
+
     setEventListeners(){
         this._form.addEventListener("submit", (evt) => {
             evt.preventDefault();
-            this._formSubmission(this._formValues);
+            this._formSubmission(this._formValues)
             this.close();
         });
         super.setEventListeners();

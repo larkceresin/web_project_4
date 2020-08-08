@@ -45,11 +45,13 @@ class Card {
     this.likeButton.classList.remove("gallery__like-button_active");
 
   }
-  _setEventListeners() {
-    this._trashButton.addEventListener("click", (evt) => {
-      this._handleTrashClick(this._id); //submit with ID of element
+  setTrashListener(){
+    this._trashButton.addEventListener("click", () => {
+      this._handleTrashClick(this._id);
        
     });
+  }
+  _setEventListeners() {
     this.likeButton.addEventListener("click", () => {
       this._handleLikeClick(this._id);
     });

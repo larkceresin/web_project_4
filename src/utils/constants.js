@@ -1,9 +1,3 @@
-import endPlace from "../images/cliffside__Katie-Rodriguez.jpg";
-import leaf from "../images/leaf__chuttersnap.jpg";
-import snowyMtn from "../images/snowy-peaks__Joshua-Redekopp.jpg";
-import barrier from "../images/storm-incoming__Reuben-Teo.jpg";
-import neverForever from "../images/wash-hands__Joshua-Reddekopp.jpg";
-import waterCross from "../images/waterfalling__Oliver-Ash.jpg";
 //profile modal
 const profilePopout = document.querySelector(".popout__container_profile-edit");
 const profileFormElement = profilePopout.querySelector(".popout__form");
@@ -30,6 +24,7 @@ const picturePopout = document.querySelector(".popout__container_picture-view");
 
 //trash form
 const deletePopout = document.querySelector(".popout__container_delete");
+const deleteInput = deletePopout.querySelector(".popout__form-private");
 //avatar form
 const avatarPopout = document.querySelector(".popout__container_picture-change");
 const avatarFormElement = avatarPopout.querySelector(".popout__form")
@@ -37,32 +32,6 @@ const avatarLink = avatarPopout.querySelector(".popout__form-input_type_image");
 //avatar 
 const avatarEdit = document.querySelector(".profile__picture_overlay");
 const avatar = document.querySelector(".profile__picture");
-const initialCards = [
-    {
-        name: "The End Place",
-        link: endPlace
-    },
-    {
-        name: "Turn That Leaf Over",
-        link: leaf
-    },
-    {
-        name: "Great Peaks, The Snowy Mountains",
-        link: snowyMtn
-    },
-    {
-        name: "Barrier Islands",
-        link: barrier
-    },
-    {
-        name: "Never Forever",
-        link: neverForever
-    },
-    {
-        name: "Water Crossing",
-        link: waterCross
-    }
-];
 const defaultConfig = {
   formSelector: ".popout__form",
   inputSelector: ".popout__form-input",
@@ -72,4 +41,4 @@ const defaultConfig = {
   errorClass: "popout__form-input-error_active"
 }
 const escKeyCode = 27;
-export {profilePopout, avatar, avatarFormElement, nameInput, deletePopout, avatarPopout, avatarLink, avatarEdit, jobInput, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, initialCards, defaultConfig, escKeyCode}
+export {profilePopout, deleteInput, avatar, avatarFormElement, nameInput, deletePopout, avatarPopout, avatarLink, avatarEdit, jobInput, profileFormElement, editBtn,addButton,galleryPopout,galleryFormElement,titleInput,imageInput,galleryContainer,picturePopout, defaultConfig, escKeyCode}

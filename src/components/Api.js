@@ -49,6 +49,13 @@ class Api{
             .catch((err) => console.log(err))
         }
     }
+    getCardLikeStatus(cardId){
+        return fetch(this._baseUrl + `/cards/likes/` + cardId, {
+            headers: this._headers})
+            .then((res) => res.ok? res.json() : Promise.reject(`Error!`+ res.status + res.statusText))
+            .catch((err) => console.log(err))
+    };
+
     setUserInfo({name, about}){
         return fetch(this._baseUrl + `/users/me`,{
             headers: this._headers, 
