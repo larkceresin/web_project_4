@@ -31,6 +31,7 @@ class Card {
   }
   removeCard(){
     this._element.remove();
+    this._element = null
   }
   hideTrash(){
     this._trashButton.style.display = "none";

@@ -16,6 +16,9 @@
     grid-row: span 2;
     -ms-grid-column-align: start;
         justify-self: start;
+    -webkit-transition: .5s opacity ease-in-out;
+    -o-transition: .5s opacity ease-in-out;
+        transition: .5s opacity ease-in-out;
 }
 .profile__picture_overlay:hover{
     opacity: 1;

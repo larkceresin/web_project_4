@@ -52,8 +52,10 @@ api.getCardList().then((res)=> {
        
             if (res._id != data.owner._id){
                 card.hideTrash()
+                
             } else {
                 card.setTrashListener()
+               
             }
             data.likes.some((thing) => {if (thing._id == res._id){
                 card.addLike();
@@ -129,8 +131,8 @@ api.getUserInfo().then((res)=> {
     editBtn.addEventListener("click", () => {
         profileForm.open();
         const currentUserInfo = userInfo.getUserInfo();
-        document.querySelector(".popout__form-input_type_name").value = currentUserInfo.name;
-        document.querySelector(".popout__form-input_type_job").value = currentUserInfo.job;
+        nameInput.value = currentUserInfo.name;
+        jobInput.value = currentUserInfo.job;
    });
 }
 );
