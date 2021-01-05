@@ -11,9 +11,8 @@
 
 **Figma**
 Brief was given as a figma design 
-* [Link to the project in Figma](https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=88%3A176)
 
 **Images**
 
-Images were all taken from unsplash.com
+Images were taken from unsplash.com or uploaded by a user on backend server
 
