@@ -2,7 +2,7 @@
 [Link to the project live](https://larkceresin.github.io/Around-the-US--VanillaJS/)
 * backend used with the project is no longer being hosted.
 * Project was done under Practicum x Yandex over the course of many months.
-*This project was created with vanilla javascript, webpack and other packages were used for compressing and being able to use code for deployment. 
+* This project was created with vanilla javascript, webpack and other packages were used for compressing and being able to use code for deployment. 
 
 ### Overview
 
